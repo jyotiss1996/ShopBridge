@@ -29,9 +29,9 @@ namespace ShopBridge.Controllers
 
         [HttpGet]
         [Route("ShopItemByName")]
-        public async Task<ActionResult<ErrorModel>> GetShopItem(string Name)
+        public async Task<ActionResult<ErrorModel>> GetShopItem([FromQuery] ShopItemByName shopItemByName)
         {
-            return await Task.Run(() => _shopItemServices.GetShopItem(0, Name));
+            return await Task.Run(() => _shopItemServices.GetShopItem(0,shopItemByName.Name));
         }
 
         [HttpPost]

@@ -8,10 +8,10 @@ namespace ShopBridge.Model
         [Required(ErrorMessage = "Id Required")]
         [RegularExpression("^[0-9]*$", ErrorMessage = "Not in Corret Format")]
         public int? Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Name Required")]
         public string Name { get; set; }
         public string Description { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Price Required")]
         [RegularExpression("^[0-9]\\d{0,9}(\\.\\d{1,3})?%?$", ErrorMessage = "Not in Corret Format")]
         public decimal? Price { get; set; }
     }
@@ -20,10 +20,10 @@ namespace ShopBridge.Model
     {
         [JsonIgnore]
         public int? Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Name Required")]
         public string Name { get; set; }
         public string Description { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Price Required")]
         [RegularExpression("^[0-9]\\d{0,9}(\\.\\d{1,3})?%?$", ErrorMessage = "Not in Corret Format")]
         public decimal? Price { get; set; }
     }
@@ -33,6 +33,12 @@ namespace ShopBridge.Model
         [Required(ErrorMessage ="Id Required")]
         [RegularExpression("^[0-9]*$", ErrorMessage = "Not in Corret Format")]
         public int Id { get; set; }
+    }
+
+    public class ShopItemByName
+    {
+        [Required(ErrorMessage = "Name Required")]
+        public string Name { get; set; }
     }
 
     public class ShopItemDTO
